@@ -2,6 +2,6 @@
 
 A Doctrine ProcessRepository for JobBoy.
 
-This is part of the [JobBoy project](https://github.com/danielsan80/jobboy-doc)
+The documentation is available [here](./jobboy-bundle.md#processrepository-on-doctrine)
 
 
