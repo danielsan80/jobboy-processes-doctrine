@@ -1,2 +1,5 @@
-# jobboy-processes-doctrine
-A Doctrine ProcessRepository for JobBoy
+# JobBoy: Doctrine ProcessRepository
+
+A Doctrine ProcessRepository for JobBoy.
+
+
