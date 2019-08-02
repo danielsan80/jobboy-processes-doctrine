@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "dansan/jobboy": "dev-bundlize@dev"
+        "dansan/jobboy": "dev-bundlize@dev",
+        "nesbot/carbon": "^2.0"
     },
     "require-dev": {
         "doctrine/dbal": "~2.4",
