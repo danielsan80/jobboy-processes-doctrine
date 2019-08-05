@@ -11,15 +11,12 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "dansan/jobboy": "^0.2.0",
-        "nesbot/carbon": "^2.0"
+        "dansan/jobboy": "^0.2.0"
     },
     "require-dev": {
+        "dansan/jobboy-test-pack":"*",
         "doctrine/dbal": "~2.4",
-        "dansan/fixture-handler": "*",
-        "mockery/mockery": "dev-master",
-        "symfony/dotenv": "^4.2",
-        "symfony/phpunit-bridge": "*"
+        "dansan/fixture-handler": "*"
     },
     "config": {
         "preferred-install": {
