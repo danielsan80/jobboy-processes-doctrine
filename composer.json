@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "JobBoy\\Process\\": "src/JobBoy/Process/"
+            "JobBoy\\": "src/JobBoy/"
         }
     },
     "autoload-dev": {
