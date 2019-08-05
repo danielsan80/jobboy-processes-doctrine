@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d043bdd7500f4260f71ecfe4eef40875",
+    "content-hash": "57a04b3b0553242f7b2b7e75b2b1a529",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -63,16 +63,16 @@
         },
         {
             "name": "dansan/jobboy",
-            "version": "dev-bundlize",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy.git",
-                "reference": "42f69738d383bce2ea0a35735186139015cc7f62"
+                "reference": "f677935f1e669e7bdbcfa4f7c4cabcef10154018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/42f69738d383bce2ea0a35735186139015cc7f62",
-                "reference": "42f69738d383bce2ea0a35735186139015cc7f62",
+                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/f677935f1e669e7bdbcfa4f7c4cabcef10154018",
+                "reference": "f677935f1e669e7bdbcfa4f7c4cabcef10154018",
                 "shasum": ""
             },
             "require": {
@@ -95,7 +95,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1.x-dev"
+                    "dev-master": "0.2.x-dev"
                 }
             },
             "autoload": {
@@ -115,7 +115,7 @@
                 }
             ],
             "description": "It's a little jobman... a little job manager",
-            "time": "2019-08-02T14:30:50+00:00"
+            "time": "2019-08-05T10:36:55+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1183,7 +1183,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dansan/jobboy": 20,
         "mockery/mockery": 20
     },
     "prefer-stable": false,
