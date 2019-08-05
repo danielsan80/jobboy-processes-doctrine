@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d62d9e6ff45167c353b125a446995b8a",
+    "content-hash": "d043bdd7500f4260f71ecfe4eef40875",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -67,27 +67,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielsan80/jobboy.git",
-                "reference": "172666915e101b9ef1ef9a71f039baa53f914474"
+                "reference": "42f69738d383bce2ea0a35735186139015cc7f62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/172666915e101b9ef1ef9a71f039baa53f914474",
-                "reference": "172666915e101b9ef1ef9a71f039baa53f914474",
+                "url": "https://api.github.com/repos/danielsan80/jobboy/zipball/42f69738d383bce2ea0a35735186139015cc7f62",
+                "reference": "42f69738d383bce2ea0a35735186139015cc7f62",
                 "shasum": ""
             },
             "require": {
                 "beberlei/assert": "^3.0",
                 "ext-json": "*",
-                "nesbot/carbon": "^2.0",
                 "php": "^7.1.3",
                 "ramsey/uuid": "^3.8",
                 "symfony/lock": "^4.3"
             },
             "require-dev": {
                 "dansan/fixture-handler": "*",
-                "doctrine/dbal": "~2.4",
-                "ext-redis": "*",
                 "mockery/mockery": "dev-master",
+                "nesbot/carbon": "^2.0",
                 "symfony/console": "^3.4",
                 "symfony/dotenv": "^4.2",
                 "symfony/framework-bundle": "^4.0",
@@ -117,7 +115,7 @@
                 }
             ],
             "description": "It's a little jobman... a little job manager",
-            "time": "2019-08-02T10:02:07+00:00"
+            "time": "2019-08-02T14:30:50+00:00"
         },
         {
             "name": "nesbot/carbon",
