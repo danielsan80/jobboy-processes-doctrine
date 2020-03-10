@@ -5,10 +5,7 @@ namespace JobBoy\Process\Domain\Repository\Infrastructure\Doctrine\Migrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Auto-generated Migration: Please modify to your needs!
- */
-final class Version20200201000000_add_killed_at_and_reports extends AbstractMigration
+final class Version20200310000000_add_killed_at_and_reports extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
