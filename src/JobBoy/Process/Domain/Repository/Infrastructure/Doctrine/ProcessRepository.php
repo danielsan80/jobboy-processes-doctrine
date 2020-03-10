@@ -6,7 +6,7 @@ use Assert\Assertion;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Schema\Schema;
-use Doctrine\DBAL\Types\Type;
+use Doctrine\DBAL\Types\Types;
 use JobBoy\Process\Domain\Entity\Data\ProcessData;
 use JobBoy\Process\Domain\Entity\Factory\ProcessFactory;
 use JobBoy\Process\Domain\Entity\Id\ProcessId;
@@ -150,16 +150,18 @@ class ProcessRepository implements ProcessRepositoryInterface
 
         $table = $schema->createTable($tableName);
 
-        $table->addColumn('id', Type::STRING, ['length' => 36]);
-        $table->addColumn('code', Type::STRING, ['length' => 255]);
-        $table->addColumn('parameters', Type::TEXT);
-        $table->addColumn('status', Type::STRING, ['length' => 255]);
-        $table->addColumn('created_at', Type::STRING, []);
-        $table->addColumn('updated_at', Type::STRING, []);
-        $table->addColumn('started_at', Type::STRING, ['notnull' => false]);
-        $table->addColumn('ended_at', Type::STRING, ['notnull' => false]);
-        $table->addColumn('handled_at', Type::STRING, ['notnull' => false]);
-        $table->addColumn('store', Type::TEXT);
+        $table->addColumn('id', Types::STRING, ['length' => 36]);
+        $table->addColumn('code', Types::STRING, ['length' => 255]);
+        $table->addColumn('parameters', Types::TEXT);
+        $table->addColumn('status', Types::STRING, ['length' => 255]);
+        $table->addColumn('created_at', Types::STRING, []);
+        $table->addColumn('updated_at', Types::STRING, []);
+        $table->addColumn('started_at', Types::STRING, ['notnull' => false]);
+        $table->addColumn('ended_at', Types::STRING, ['notnull' => false]);
+        $table->addColumn('handled_at', Types::STRING, ['notnull' => false]);
+        $table->addColumn('killed_at', Types::STRING, ['notnull' => false]);
+        $table->addColumn('store', Types::TEXT);
+        $table->addColumn('reports', Types::TEXT);
 
         $table->setPrimaryKey(['id']);
 
@@ -183,7 +185,9 @@ class ProcessRepository implements ProcessRepositoryInterface
                 'started_at' => ':started_at',
                 'ended_at' => ':ended_at',
                 'handled_at' => ':handled_at',
+                'killed_at' => ':killed_at',
                 'store' => ':store',
+                'reports' => ':reports',
             ])
             ->setParameters([
                 'id' => (string)$process->id(),
@@ -195,7 +199,9 @@ class ProcessRepository implements ProcessRepositoryInterface
                 'started_at' => $this->_datetimeToString($process->startedAt()),
                 'ended_at' => $this->_datetimeToString($process->endedAt()),
                 'handled_at' => $this->_datetimeToString($process->handledAt()),
+                'killed_at' => $this->_datetimeToString($process->killedAt()),
                 'store' => json_encode($process->store()->toScalar()),
+                'reports' => json_encode($process->reports()->toScalar()),
             ]);
 
         $qb->execute();
@@ -213,7 +219,9 @@ class ProcessRepository implements ProcessRepositoryInterface
               started_at = ?,
               ended_at = ?,
               handled_at = ?,
-              store = ?
+              killed_at = ?,
+              store = ?,
+              reports = ?
             WHERE id = ?',
             [
                 $process->status()->toScalar(),
@@ -221,7 +229,9 @@ class ProcessRepository implements ProcessRepositoryInterface
                 $this->_datetimeToString($process->startedAt()),
                 $this->_datetimeToString($process->endedAt()),
                 $this->_datetimeToString($process->handledAt()),
+                $this->_datetimeToString($process->killedAt()),
                 json_encode($process->store()->toScalar()),
+                json_encode($process->reports()->toScalar()),
                 $process->id()->toScalar(),
             ]);
     }
@@ -264,7 +274,9 @@ class ProcessRepository implements ProcessRepositoryInterface
             'startedAt' => $this->_stringToDateTime($data['started_at']),
             'endedAt' => $this->_stringToDateTime($data['ended_at']),
             'handledAt' => $this->_stringToDateTime($data['handled_at']),
+            'killedAt' => $this->_stringToDateTime($data['killed_at']),
             'store' => new ProcessStore(json_decode($data['store'], true)),
+            'reports' => new ProcessStore(json_decode($data['reports'], true)),
         ]));
 
         $process->addTouchCallback($this->touchCallback);
