@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace JobBoy\Process\Domain\Repository\Infrastructure\Doctrine\Migrations;
+namespace JobBoy\Process\Domain\Entity\Infrastructure\Doctrine\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
